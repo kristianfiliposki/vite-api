@@ -1,15 +1,15 @@
 <script>
-import axios from 'axios';
+import Search from './Search.vue';
 export default {
     name: "Names",
-    props: ["informations"],
+    props: ["informations", "Cap"],
 }
 </script>
 <template>
     <div>
         <div class="box">
             <h1>Where is yor Pub?</h1>
-            <div class="pub" v-for="info in informations">{{ info.name }}</div>
+            <div class="pub" :class='{ hidden: (nomi == false) }' v-for="info in informations">{{ info.name }}</div>
         </div>
     </div>
 </template>
@@ -22,5 +22,9 @@ export default {
 .pub {
     margin: 2em;
     font-size: 1.4em;
+}
+
+.hidden {
+    display: none;
 }
 </style>

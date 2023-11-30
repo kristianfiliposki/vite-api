@@ -1,7 +1,7 @@
 <script>
 export default {
     name: "Search",
-    props: ["informations"],
+    props: ["informations", "Cap"],
     data() {
         return {
             Pub: ""
@@ -13,13 +13,16 @@ export default {
     methods: {
         filter() {
             this.informations.forEach(element => {
-                if (element.name.includes(this.Pub)) {
-                    console.log("done")
-                    const nomi = (element.name.includes(this.Pub))
-                    return nomi
+                if (element.postal_code.includes(this.Pub)) {
+                    console.log("done");
+                    this.nomi = (element.postal_code.includes(this.Pub));
+                    this.nomi = true;
 
                 }
-                else { console.log("male") }
+                else {
+                    this.nomi = false;
+
+                }
             });
         }
     }
@@ -31,7 +34,7 @@ export default {
         <div>
             <input type="text" v-model=Pub>
             <button @click="filter(this.Pub, this.informations)"></button>
-            <div>{{ informations }}</div>
+            <div></div>
         </div>
 
 

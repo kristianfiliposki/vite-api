@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       dati: []
+
     };
   },
   mounted() {
@@ -31,8 +32,8 @@ export default {
 </script>
 
 <template>
-  <Search :informations="dati"></Search>
-  <Names :informations="dati"></Names>
+  <Search :informations="dati" informations.postal_code="Cap"></Search>
+  <Names :informations="dati" informations.postal_code="Cap"></Names>
 </template>
 
 <style scoped></style>
