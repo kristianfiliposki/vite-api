@@ -2,31 +2,14 @@
 import axios from 'axios';
 export default {
     name: "Names",
-    data() {
-        return {
-            dati: []
-        };
-    },
-    mounted() {
-        this.ServerInfo();
-    },
-    methods: {
-        ServerInfo() {
-            axios.get("https://api.openbrewerydb.org/v1/breweries?by_country=ireland&per_page=10").then(risultato => {
-                this.dati = risultato.data;
-                console.log(this.dati);
-            });
-        },
-        info(dati) {
-        }
-    },
+    props: ["informations"],
 }
 </script>
 <template>
     <div>
         <div class="box">
             <h1>Where is yor Pub?</h1>
-            <div class="pub" v-for="dato in dati">{{ dato.name }}</div>
+            <div class="pub" v-for="info in informations">{{ info.name }}</div>
         </div>
     </div>
 </template>
