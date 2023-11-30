@@ -15,6 +15,8 @@ export default {
             this.informations.forEach(element => {
                 if (element.name.includes(this.Pub)) {
                     console.log("done")
+                    const nomi = (element.name.includes(this.Pub))
+                    return nomi
 
                 }
                 else { console.log("male") }
