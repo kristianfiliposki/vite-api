@@ -50,6 +50,7 @@ export default {
 
 .cap {
     font-weight: 900;
+    margin-left: 20px;
 }
 
 .hidden {
