@@ -48,7 +48,8 @@ export default {
     display: flex;
 }
 
-.cap font-weight: 900;
+.cap {
+    font-weight: 900;
 }
 
 .hidden {
