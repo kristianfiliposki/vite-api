@@ -2,15 +2,16 @@
 
 import axios from 'axios'; /* importo axios */
 import Names from './components/Names.vue';
+import Search from './components/Search.vue'
 
 export default {
   components: {
     Names,
+    Search,
   },
   data() {
     return {
       dati: [],
-      caps: ["info.postal_code"],
 
 
     };
@@ -34,7 +35,8 @@ export default {
 </script>
 
 <template>
-  <Names :informations="dati" :caps="caps"></Names>
+  <Search :informations="dati"></Search>
+  <Names :informations="dati"></Names>
 </template>
 
 <style scoped></style>
