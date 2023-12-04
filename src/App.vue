@@ -23,20 +23,28 @@ export default {
   },
   methods: {
     ServerInfo() {
+      /* se store testo è vuoto allora... */
       axios.get("https://api.openbrewerydb.org/v1/breweries?by_postal").then(risultato => {
         this.store.dati = risultato.data;
         console.log(this.store.dati);
       });
+
     },
+    filter() {
+      /* se non è vuoto allora... */
+      axios.get(`https://api.openbrewerydb.org/v1/breweries?by_postal=${this.store.testo}`).then(risultato => {
+        this.store.dati = risultato.data;
+        console.log(risultato.data);
+      })
 
 
-  },
+    },
+  }
 }
-
 </script>
 
 <template>
-  <Search />
+  <Search @ricerca="filter()" />
   <Names />
 </template>
 

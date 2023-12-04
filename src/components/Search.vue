@@ -5,7 +5,6 @@ export default {
     name: "Search",
     data() {
         return {
-            testo: "",
             store
         }
     },
@@ -13,10 +12,11 @@ export default {
     methods: {
 
         filter() {
-            axios.get(`https://api.openbrewerydb.org/v1/breweries?by_postal=${this.testo}`).then(risultato => {
-                this.store.dati = risultato.data;
-                console.log(risultato.data);
-            });
+            /*             axios.get(`https://api.openbrewerydb.org/v1/breweries?by_postal=${this.testo}`).then(risultato => {
+                            this.store.dati = risultato.data;
+                            console.log(risultato.data);
+                        }); */
+            this.$emit("ricerca")
         }
     },
 
@@ -27,7 +27,7 @@ export default {
     <div>
         <div class="box">
             <h1>Where is yor Pub?</h1>
-            <input type="text" v-model="testo" @keyup="filter()">
+            <input type="text" v-model="store.testo" @keyup="filter()">
         </div>
     </div>
 </template>
