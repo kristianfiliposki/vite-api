@@ -3,6 +3,7 @@
 import axios from 'axios'; /* importo axios */
 import Names from './components/Names.vue';
 import Search from './components/Search.vue'
+import { store } from './store.js'
 
 export default {
   components: {
@@ -11,7 +12,7 @@ export default {
   },
   data() {
     return {
-      dati: [],
+      store,
 
 
     };
@@ -22,9 +23,9 @@ export default {
   },
   methods: {
     ServerInfo() {
-      axios.get("https://api.openbrewerydb.org/v1/breweries?by_country=ireland&per_page=10").then(risultato => {
-        this.dati = risultato.data;
-        console.log(this.dati);
+      axios.get("https://api.openbrewerydb.org/v1/breweries?by_postal").then(risultato => {
+        this.store.dati = risultato.data;
+        console.log(this.store.dati);
       });
     },
 
@@ -35,8 +36,8 @@ export default {
 </script>
 
 <template>
-  <Search :informations="dati"></Search>
-  <Names :informations="dati"></Names>
+  <Search />
+  <Names />
 </template>
 
 <style scoped></style>
