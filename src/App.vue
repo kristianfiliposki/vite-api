@@ -28,7 +28,6 @@ export default {
         this.store.dati = risultato.data;
         console.log(this.store.dati);
       });
-
     },
     filter() {
       /* se non è vuoto allora... */
@@ -36,8 +35,6 @@ export default {
         this.store.dati = risultato.data;
         console.log(risultato.data);
       })
-
-
     },
   }
 }

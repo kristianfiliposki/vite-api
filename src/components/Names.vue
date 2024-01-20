@@ -20,6 +20,8 @@ export default {
             <div class="pub" v-for="info in store.dati">
                 <div>
                     {{ info.name }}
+                </div>
+                <div class="cap">
                     {{ info.postal_code }}
                 </div>
             </div>
